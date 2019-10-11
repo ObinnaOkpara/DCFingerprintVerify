@@ -173,5 +173,37 @@ namespace DCFingerprintAPIs.Controllers
             return Ok(rtn);
         }
 
+
+        // GET: api/Staff/Fingerprints
+        /// <summary>
+        /// Get all Fingerprints
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("Fingerprints")]
+        public async Task<IActionResult> GetFingerprints()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var fps = await _context.Fingerprints.Include(n => n.Staff).ToListAsync();
+
+            foreach (var item in fps)
+            {
+                item.Staff.Fingerprints = null;
+
+            }
+
+            var rtn = new ApiReturnObject<List<Fingerprint>>()
+            {
+                Message = "List of fingerprints",
+                Status = true,
+                Object = fps
+            };
+
+            return Ok(rtn);
+        }
+
     }
 }

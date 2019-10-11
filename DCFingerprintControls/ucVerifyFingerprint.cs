@@ -12,14 +12,16 @@ namespace DCFingerprintControls
 {
     public class ucVerifyFingerprint: ucFPBase
     {
-        private List<Template> StaffTemplates = new List<Template>();
+        private List<Template> Templates = new List<Template>();
+        private List<Fingerprint> Fingerprints = new List<Fingerprint>();
         private DPFP.Verification.Verification Verificator;
 
-        private Stafftab Staff;
+        public event EventHandler StaffVerified;
 
-        public ucVerifyFingerprint(Stafftab _staff)
+        public Stafftab Staff;
+
+        public ucVerifyFingerprint()
         {
-            Staff = _staff;
             this.Load += UcVerifyFingerprint_Load;
             this.ControlRemoved += UcVerifyFingerprint_ControlRemoved;
         }
@@ -34,18 +36,25 @@ namespace DCFingerprintControls
 
         private void UcVerifyFingerprint_Load(object sender, EventArgs e)
         {
-            lblWelcome.Text = $"Enrol Fingerprint for {Staff.Surname + " " + Staff.Othernames}";
+            lblWelcome.Text = "Verify Fingerprint";
+            MakeReport("Please wait while Verification is being prepared.");
+        }
+
+        public void StartVerify(List<Fingerprint> fingerprints)
+        {
+            Fingerprints = fingerprints;
+
             lstFPstatus.Items.Clear();
             Init();
             Start();
 
             Verificator = new DPFP.Verification.Verification();
 
-            foreach (var fp in Staff.Fingerprints)
+            foreach (var fp in fingerprints)
             {
                 using (var stream = new MemoryStream(fp.FPfile))
                 {
-                    StaffTemplates.Add(new Template(stream));
+                    Templates.Add(new Template(stream));
                 }
             }
         }
@@ -82,8 +91,10 @@ namespace DCFingerprintControls
                     bool found = false;
                     int index = 0;
                     // Compare the feature set with each of our template
-                    foreach (var template in StaffTemplates)
-                    {
+
+                    for (int i = 0; i < Templates.Count; i++)
+                    { 
+                        var template = Templates[i];
                         Verificator.Verify(features, template, ref result);
 
                         if (result.Verified)
@@ -91,8 +102,12 @@ namespace DCFingerprintControls
                             found = true;
 
                             MakeReport("VERIFIED SUCCESSFULLY.");
-                            Stop();
-                            disableMe();
+
+                            Staff = Fingerprints[i].Staff;
+
+                            this.StaffVerified?.Invoke(this, new EventArgs());
+
+                            Start();
                             break;
                         }
                         index++;
