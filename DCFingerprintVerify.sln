@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCFingerprintEnrol", "DCFingerprintEnrol\DCFingerprintEnrol.csproj", "{D45FFFCB-A86D-4A16-9795-7F8C8913CC33}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DCFingerprintDBClass", "DCFingerprintDBClass\DCFingerprintDBClass.csproj", "{E03A9E06-232C-4CC0-90F3-15A06F058FDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DCFingerprintAPIs", "DCFingerprintAPIs\DCFingerprintAPIs.csproj", "{7CF09BE8-2C2F-47BE-B080-1115561D80F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCFingerprintVerify", "DCFingerprintVerify\DCFingerprintVerify.csproj", "{11C5863B-87AD-4851-96CA-160F457E7BD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCFingerprintClasses", "DCFingerprintClasses\DCFingerprintClasses.csproj", "{45358CF4-B08B-4592-B266-DE2A8E942B18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCFingerprintControls", "DCFingerprintControls\DCFingerprintControls.csproj", "{A8CED031-B8A2-470D-B0FB-D9A413FCEA1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D45FFFCB-A86D-4A16-9795-7F8C8913CC33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45FFFCB-A86D-4A16-9795-7F8C8913CC33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45FFFCB-A86D-4A16-9795-7F8C8913CC33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45FFFCB-A86D-4A16-9795-7F8C8913CC33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E03A9E06-232C-4CC0-90F3-15A06F058FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E03A9E06-232C-4CC0-90F3-15A06F058FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E03A9E06-232C-4CC0-90F3-15A06F058FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E03A9E06-232C-4CC0-90F3-15A06F058FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF09BE8-2C2F-47BE-B080-1115561D80F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF09BE8-2C2F-47BE-B080-1115561D80F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF09BE8-2C2F-47BE-B080-1115561D80F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF09BE8-2C2F-47BE-B080-1115561D80F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11C5863B-87AD-4851-96CA-160F457E7BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11C5863B-87AD-4851-96CA-160F457E7BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11C5863B-87AD-4851-96CA-160F457E7BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11C5863B-87AD-4851-96CA-160F457E7BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45358CF4-B08B-4592-B266-DE2A8E942B18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45358CF4-B08B-4592-B266-DE2A8E942B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45358CF4-B08B-4592-B266-DE2A8E942B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45358CF4-B08B-4592-B266-DE2A8E942B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8CED031-B8A2-470D-B0FB-D9A413FCEA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8CED031-B8A2-470D-B0FB-D9A413FCEA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8CED031-B8A2-470D-B0FB-D9A413FCEA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8CED031-B8A2-470D-B0FB-D9A413FCEA1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A46B541-BB0F-47F6-B7B5-F9E0495C6F2F}
+	EndGlobalSection
+EndGlobal
