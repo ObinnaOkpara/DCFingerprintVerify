@@ -105,7 +105,11 @@ namespace DCFingerprintControls
 
                             Staff = Fingerprints[i].Staff;
 
-                            this.StaffVerified?.Invoke(this, new EventArgs());
+                            this.Invoke(new Function(delegate ()
+                            {
+                                this.StaffVerified?.Invoke(this, new EventArgs());
+                            }));
+
 
                             Start();
                             break;

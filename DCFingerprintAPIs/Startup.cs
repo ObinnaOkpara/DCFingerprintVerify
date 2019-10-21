@@ -41,7 +41,7 @@ namespace DCFingerprintAPIs
             string conn;
             if (Env.IsDevelopment())
             {
-                conn = @"Server =.\SQLEXPRESS01; Database=BSSLSYS_ITF; Trusted_Connection=True;";
+                conn = @"Server =.\SQLEXPRESS; Database=BSSLSYS_ITF; Trusted_Connection=True;";
             }
             else
             {

@@ -30,7 +30,6 @@
         {
             this.grpS = new System.Windows.Forms.GroupBox();
             this.btnBack = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.ucVerifyFingerprint1 = new DCFingerprintControls.ucVerifyFingerprint();
             this.grpFP = new System.Windows.Forms.GroupBox();
             this.grpStaff = new System.Windows.Forms.GroupBox();
@@ -60,11 +59,6 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
             // ucVerifyFingerprint1
             // 
@@ -120,7 +114,6 @@
         #endregion
         private System.Windows.Forms.GroupBox grpFP;
         private System.Windows.Forms.Button btnBack;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private DCFingerprintControls.ucVerifyFingerprint ucVerifyFingerprint1;
         private System.Windows.Forms.GroupBox grpS;
         private System.Windows.Forms.GroupBox grpStaff;

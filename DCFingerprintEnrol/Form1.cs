@@ -49,6 +49,7 @@ namespace DCFingerprintEnrol
                 if (response.IsSuccessStatusCode)
                 {
                     var rtn = JsonConvert.DeserializeObject<ApiReturnObject<Useracct>>(await response.Content.ReadAsStringAsync());
+
                     MessageBox.Show(rtn.Message);
 
                     if (rtn.Status)
@@ -58,6 +59,7 @@ namespace DCFingerprintEnrol
                         groupBox2.Show();
                     }
                 }
+                else { MessageBox.Show("An error occured while connecting to API.");  }
             }
 
 

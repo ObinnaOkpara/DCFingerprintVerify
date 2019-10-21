@@ -22,6 +22,7 @@ namespace DCFingerprintEnrol
         private List<Fingerprint> FPS = new List<Fingerprint>();
         private Form home;
         ucUserDetails ucUserdetail;
+        private ApiReturnObject<List<Fingerprint>> rtn;
 
         public frmVerify(Useracct _LoggedInUser, Form _home)
         {
@@ -36,43 +37,34 @@ namespace DCFingerprintEnrol
             this.Close();
         }
 
-        private async void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private async void frmVerify_Load(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
+            ucVerifyFingerprint1.StaffVerified += UcVerifyFingerprint1_StaffVerified;
 
             using (var HC = new HttpClient())
             {
                 var response = await HC.GetAsync(Constants.baseUrl + $"Staff/Fingerprints");
                 if (response.IsSuccessStatusCode)
                 {
-                    var rtn = JsonConvert.DeserializeObject<ApiReturnObject<List<Fingerprint>>>(await response.Content.ReadAsStringAsync());
+                    rtn = JsonConvert.DeserializeObject<ApiReturnObject<List<Fingerprint>>>(await response.Content.ReadAsStringAsync());
 
                     FPS = rtn.Object;
                 }
+
+                if (FPS.Count <= 0)
+                {
+                    MessageBox.Show("An error occured while fetching fingerprints. Please try again later.");
+                    this.Close();
+                }
+                else
+                {
+                    ucVerifyFingerprint1.Enabled = true;
+                    ucVerifyFingerprint1.StartVerify(FPS);
+                }
             }
 
-
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
             Cursor = Cursors.Default;
-            if (FPS.Count<=0)
-            {
-                MessageBox.Show("An error occured while fetching fingerprints. Please try again later.");
-                this.Close();
-            }
-            else
-            {
-                ucVerifyFingerprint1.Enabled = true;
-                ucVerifyFingerprint1.StartVerify(FPS);
-            }
-        }
-
-        private void frmVerify_Load(object sender, EventArgs e)
-        {
-            Cursor = Cursors.WaitCursor;
-            ucVerifyFingerprint1.StaffVerified += UcVerifyFingerprint1_StaffVerified;
-
         }
 
         private void UcVerifyFingerprint1_StaffVerified(object sender, EventArgs e)
